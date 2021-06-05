@@ -1,26 +1,23 @@
-import {useState} from 'react';
+import BlogList from './blogList';
+import useFetch from './useFetch';
 
 const Home = () => {
-    const [blogs, setBlogs] = useState([
-        {id: 1, title: "How to use Photoshop", author: "Tom macherony"},
-        {id: 2, title: "Best programing language in 2021", author: "Robert Jake"},
-        {id: 3, title: "What to do when you're bored", author: "Anonymouse"},
-    ]);
+    const {data:blogs} = useFetch("http://localhost:8000/blogs");
+
+    const handleDelete = (id) => {
+        // const newBlogs = blogs.filter(b => b.id !== id);
+        // setBlogs(newBlogs);
+    }
 
     return ( 
         <section className="content">
-            <div className="container">
-                <h1>Home Page</h1>
-
-                <div className="blogs">
-                    {blogs.map(blog => 
-                        <div key={blog.id} className="blog-preview">
-                            <h2 className="title">{blog.title}</h2>
-                            <p className="author">{blog.author}</p>
-                        </div>
-                    )}
-                </div>
-            </div>
+            {blogs ?
+                <div className="container">
+                    <BlogList title="Top" blogs={blogs.filter(b => !b.favorite)} onDelete={handleDelete}/>
+                    <BlogList title="Latest" blogs={blogs.filter(b => b.favorite)} onDelete={handleDelete}/>
+                </div> :
+                <div className="loading">Loading...</div>
+            }
         </section>
     );
 }

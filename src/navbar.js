@@ -1,37 +1,26 @@
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
+import { getTabs } from './data/repository';
 
 const Navbar = () => {
+    const tabs = getTabs();
     const [activeTab, setActiveTab] = useState(1);
 
-    const tabs = [
-        {
-            id: 1,
-            text: "Home",
-            url: "",
-        },
-        {
-            id: 2,
-            text: "Create",
-            url: "/create",
-        },
-    ]
-
     function handleTab(e, tab) {
-        e.preventDefault();
         setActiveTab(tab.id);
     }
 
     return ( 
         <nav>
             <div className="container">
-                <a href="" className="title">Title</a>
+                <a href="/" className="title">Title</a>
                 <ul>
                     {tabs.map(tab => 
                         <li
                             key={tab.id}
                             onClick={(e) => handleTab(e, tab)}
-                            className={activeTab == tab.id ? "active" : ""}>
-                                <a href={tab.url}>{tab.text}</a>
+                            className={activeTab === tab.id ? "active" : ""}>
+                                <Link to={tab.url}>{tab.text}</Link>
                         </li>    
                     )}
                 </ul>

@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
 :root {
-  --primary: #256dda;
+  --red: #f04259;
+  --blue: #256dda;
+  --primary: var(--blue);
   --text-color-500: hsl(0, 0%, 10%);
-  --text-color-400: hsl(0, 0%, 20%);
+  --text-color-400: hsl(0, 0%, 25%);
   --text-color-300: hsl(0, 0%, 50%);
   --text-color-200: hsl(0, 0%, 80%);
   --text-color-100: hsl(0, 0%, 90%);
+  --text-color-50: hsl(0, 0%, 99%);
   --text-color: var(--text-color-500);
 }
 
@@ -16,6 +19,7 @@
 }
 
 body {
+  background-color: var(--text-color-50);
   font-family: "Poppins", sans-serif;
 }
 
@@ -23,9 +27,12 @@ a {
   text-decoration: none;
 }
 
-h1 {
+h2 {
   font-size: 2em;
   font-weight: 500;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+  color: var(--primary);
 }
 
 .container {
@@ -101,17 +108,25 @@ section {
 .blogs {
   width: 100%;
   max-width: 700px;
+  margin-bottom: 10px;
 }
 .blogs .blog-preview {
-  padding: 15px;
-  margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 12px;
-  border: 1px solid #ddd;
+  background-color: #fff;
   transition: 0.3s ease-in-out;
+  border: 1px solid var(--text-color-100);
 }
 .blogs .blog-preview:hover {
   border-color: #fff;
   box-shadow: 0px 5px 30px -8px #ddd;
+}
+.blogs .blog-preview:hover .delete-btn {
+  opacity: 1;
 }
 .blogs .blog-preview .title {
   font-size: 1.5em;
@@ -123,6 +138,29 @@ section {
   font-size: 0.9em;
   font-weight: 300;
   color: var(--text-color-300);
+}
+.blogs .blog-preview .delete-btn {
+  opacity: 0;
+  border: none;
+  padding: 5px;
+  font-size: 0.8em;
+  font-weight: 500;
+  line-height: 1em;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: var(--red);
+  font-family: "Poppins", sans-serif;
+  transition: 0.4s ease-in-out;
+}
+
+.loading {
+  font-size: 1.5em;
+  color: var(--text-color-300);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 /*# sourceMappingURL=index.css.map */

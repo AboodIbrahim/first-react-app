@@ -1,0 +1,26 @@
+{
+    "tabs": [
+        {
+            "id": 1,
+            "text": "Home",
+            "url": "/"
+        },
+        {
+            "id": 2,
+            "text": "Create",
+            "url": "/create"
+        }
+    ],
+
+    "blogs": [
+        {"id": 1, "title": "How to use Photoshop", "author": "Tom macherony"},
+        {"id": 2, "title": "Best programing language in 2021", "author": "Robert Jake"},
+        {"id": 3, "title": "What to do when you're bored", "author": "Anonymouse", "favorite": true},
+        {"id": 4, "title": "How to use Photoshop", "author": "Tom macherony"},
+        {"id": 5, "title": "Best programing language in 2021", "author": "Robert Jake", "favorite": true},
+        {"id": 6, "title": "What to do when you're bored", "author": "Anonymouse"},
+        {"id": 7, "title": "How to use Photoshop", "author": "Tom macherony", "favorite": true},
+        {"id": 8, "title": "Best programing language in 2021", "author": "Robert Jake"},
+        {"id": 9, "title": "What to do when you're bored", "author": "Anonymouse", "favorite": true}
+    ]
+}
